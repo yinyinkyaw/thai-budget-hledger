@@ -1,0 +1,37 @@
+; journal created 2026-02-08 by hledger
+
+2026-02-06 Salary
+    assets:bank      31303.85 THB
+    equity:start    -31303.85 THB
+
+2026-02-03 Dinner
+    expenses:food:meal          30 THB
+    assets:bank                -30 THB
+
+2026-02-03 Rent & Utilities
+    expenses:rents&utilities      5179.8 THB
+    assets:bank                  -5179.8 THB
+
+2026-02-05 meat market
+    expenses:shopping:meat      162.12 THB
+    assets:bank                -162.12 THB
+
+2026-02-07 DIY
+    expenses:shopping:utilities          52 THB
+    assets:bank                         -52 THB
+
+2026-02-07 Pants
+    expenses:shopping:clothes         720 THB
+    assets:bank                      -720 THB
+
+2026-02-07 Meal
+    expenses:food:meal          55 THB
+    assets:bank                -55 THB
+
+2026-02-06 Transfer to Home
+    expenses:bills:home       12000 THB
+    assets:bank              -12000 THB
+
+2026-02-07 Laundry
+    expenses:healthcare:laundry         120 THB
+    assets:bank                        -120 THB
