@@ -34,4 +34,52 @@
 
 2026-02-07 Laundry
     expenses:healthcare:laundry         120 THB
-    assets:bank                        -120 THB
+    assets:wallet                        -120 THB
+
+2026-02-04 Transfer to wallet
+    assets:wallet        1000 THB
+    assets:bank         -1000 THB
+
+2026-02-04 Clothes from Lazada
+    expenses:shopping:clothes      112.80 THB
+    assets:wallet                 -112.80 THB
+
+2026-02-05 Shopping from LINEMAN
+    expenses:bodycare:softener          58 THB
+    assets:wallet                      -58 THB
+
+2026-02-05 Chips and ramen
+    expenses:food         109 THB
+    assets:wallet        -109 THB
+
+2026-02-05 vegetables
+    expenses:shopping:veges         105 THB
+    assets:wallet                  -105 THB
+
+2026-02-05 bra
+    expenses:shopping:clothes       60.15 THB
+    assets:wallet                  -60.15 THB
+
+2026-02-05 Cloth from Lazada
+    expenses:shopping:clothes      263.01 THB
+    assets:wallet                 -263.01 THB
+
+2026-02-05 water from Big C
+    expenses:shopping          12 THB
+    assets:wallet             -12 THB
+
+2026-02-07 Papaya
+    expenses:shopping:veges          44 THB
+    assets:wallet                   -44 THB
+
+2026-02-07 Ice cream from beach
+    expenses:food          40 THB
+    assets:wallet         -40 THB
+
+2026-02-07 7-ELEVEN
+    expenses:shopping          52 THB
+    assets:wallet             -52 THB
+
+2026-02-07 Withdrawl cash
+    assets:cash         500 THB
+    assets:bank        -500 THB
