@@ -72,12 +72,15 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Header totalBalance={stats.netWorth} />
-      <div className="max-w-7xl mx-auto px-6 py-4 space-y-4">
+      <div 
+        className="px-3 sm:px-4 md:px-6 py-3 md:py-4 space-y-3 md:space-y-4"
+        style={{ maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto' }}
+      >
         <ExpenseIncomeCards
           expense={stats.totalExpenses}
           income={stats.totalIncome}
         />
-        <MultiMonthCalendar />
+        <MultiMonthCalendar transactions={transactions} />
         <TransactionsTable transactions={transactions} />
       </div>
     </div>

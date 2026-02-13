@@ -21,8 +21,8 @@ interface TransactionsTableProps {
 export const TransactionsTable: React.FC<TransactionsTableProps> = ({ transactions }) => {
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', { 
-      month: 'short', 
+    return date.toLocaleDateString('en-US', {
+      month: 'short',
       day: 'numeric',
       year: 'numeric'
     });
@@ -41,54 +41,56 @@ export const TransactionsTable: React.FC<TransactionsTableProps> = ({ transactio
 
   return (
     <Card>
-      <CardHeader className="pb-4">
-        <CardTitle className="text-base font-semibold">Transactions</CardTitle>
-        <CardDescription className="text-sm mt-0.5">All income and expense transactions.</CardDescription>
+      <CardHeader className="pb-3 md:pb-4 px-4 md:px-6">
+        <CardTitle className="text-sm md:text-base font-semibold">Transactions</CardTitle>
+        <CardDescription className="text-xs md:text-sm mt-0.5">All income and expense transactions.</CardDescription>
       </CardHeader>
       <CardContent className="p-0 pb-0">
         <Table>
           <TableHeader>
             <TableRow className="hover:bg-transparent">
-              <TableHead className="text-[11px] uppercase tracking-wider font-medium">Date</TableHead>
-              <TableHead className="text-[11px] uppercase tracking-wider font-medium">Description</TableHead>
-              <TableHead className="text-[11px] uppercase tracking-wider font-medium">Category</TableHead>
-              <TableHead className="text-[11px] uppercase tracking-wider font-medium">Type</TableHead>
-              <TableHead className="text-right text-[11px] uppercase tracking-wider font-medium">Amount</TableHead>
+              <TableHead className="text-[10px] md:text-[11px] uppercase tracking-wider font-medium px-2 md:px-4">Date</TableHead>
+              <TableHead className="text-[10px] md:text-[11px] uppercase tracking-wider font-medium px-2 md:px-4">Description</TableHead>
+              <TableHead className="text-[10px] md:text-[11px] uppercase tracking-wider font-medium px-2 md:px-4 hidden sm:table-cell">Category</TableHead>
+              <TableHead className="text-[10px] md:text-[11px] uppercase tracking-wider font-medium px-2 md:px-4">Type</TableHead>
+              <TableHead className="text-right text-[10px] md:text-[11px] uppercase tracking-wider font-medium px-2 md:px-4">Amount</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {transactions.map((transaction) => (
               <TableRow key={transaction.id}>
-                <TableCell className="text-muted-foreground text-sm">
+                <TableCell className="text-muted-foreground text-xs md:text-sm px-2 md:px-4">
                   {formatDate(transaction.date)}
                 </TableCell>
-                <TableCell className="text-sm">
-                  <div className="flex items-center gap-2">
-                    <span className="font-medium">{transaction.description}</span>
+                <TableCell className="text-xs md:text-sm px-2 md:px-4">
+                  <div className="flex items-center gap-1 md:gap-2">
+                    <span className="font-medium truncate max-w-[100px] sm:max-w-none">{transaction.description}</span>
                     {transaction.status === 'pending' && (
-                      <Badge variant="outline" className="bg-orange-50 text-orange-700 border-orange-200 text-xs">
+                      <Badge variant="outline" className="text-amber-600 border-amber-300 bg-amber-50 text-[10px] md:text-xs whitespace-nowrap">
                         Pending
                       </Badge>
                     )}
                   </div>
                 </TableCell>
-                <TableCell className="text-muted-foreground text-sm">
-                  {transaction.category}
+                <TableCell className="hidden sm:table-cell px-2 md:px-4">
+                  <span className="inline-flex items-center px-2 md:px-2.5 py-0.5 rounded-full text-[10px] md:text-xs font-medium bg-gray-100 text-gray-700">
+                    {transaction.category}
+                  </span>
                 </TableCell>
-                <TableCell>
+                <TableCell className="px-2 md:px-4">
                   <Badge 
                     variant="outline"
-                    className={`text-xs ${transaction.type === 'income'
-                      ? 'bg-green-50 text-green-700 border-green-200'
-                      : 'bg-red-50 text-red-700 border-red-200'
+                    className={`text-[10px] md:text-xs ${transaction.type === 'income'
+                      ? 'text-green-700 border-green-200 bg-green-50'
+                      : 'text-red-700 border-red-200 bg-red-50'
                     }`}
                   >
                     {transaction.type === 'income' ? 'Income' : 'Expense'}
                   </Badge>
                 </TableCell>
-                <TableCell className="text-right font-medium text-sm">
+                <TableCell className="text-right font-medium text-xs md:text-sm px-2 md:px-4">
                   <span className={transaction.type === 'income' ? 'text-green-600' : 'text-foreground'}>
-                    {transaction.type === 'income' ? '+' : '-'}{formatAmount(transaction.amount)} {transaction.currency || 'THB'}
+                    {transaction.type === 'income' ? '+' : '-'}{formatAmount(transaction.amount)}
                   </span>
                 </TableCell>
               </TableRow>
@@ -96,15 +98,15 @@ export const TransactionsTable: React.FC<TransactionsTableProps> = ({ transactio
             
             {/* Total Row */}
             <TableRow className="bg-muted/30 font-semibold hover:bg-muted/30">
-              <TableCell className="text-sm">Total</TableCell>
-              <TableCell></TableCell>
-              <TableCell></TableCell>
-              <TableCell></TableCell>
-              <TableCell className="text-right text-green-600 font-bold text-sm">
-                {totalBalance.toLocaleString(undefined, { 
+              <TableCell className="text-xs md:text-sm px-2 md:px-4">Total</TableCell>
+              <TableCell className="px-2 md:px-4"></TableCell>
+              <TableCell className="hidden sm:table-cell px-2 md:px-4"></TableCell>
+              <TableCell className="px-2 md:px-4"></TableCell>
+              <TableCell className="text-right text-green-600 font-bold text-xs md:text-sm px-2 md:px-4">
+                ${totalBalance.toLocaleString(undefined, { 
                   minimumFractionDigits: 2, 
                   maximumFractionDigits: 2 
-                })} THB
+                })}
               </TableCell>
             </TableRow>
           </TableBody>
